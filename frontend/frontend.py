@@ -41,6 +41,7 @@ def draw_gradio_ui(opt, img2img=lambda x: x, txt2img=lambda x: x, imgproc=lambda
         .logo {
             width: 250px;
         }
+        </style>
         <div id="90" style="max-width: 100%; font-size: 14px; text-align: center;" class="output-markdown gr-prose border-solid border border-gray-200 rounded gr-panel">
             <div class="content-wrapper">
             <img class="logo no-select" src="https://static.wixstatic.com/media/1933af_6ecb8ee9eb0b4dcbb868b70f1749e3af~mv2.png/v1/fill/w_208,h_56,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo_MetaCube.png">
