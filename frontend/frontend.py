@@ -30,7 +30,7 @@ def draw_gradio_ui(opt, img2img=lambda x: x, txt2img=lambda x: x, imgproc=lambda
                    scn2img_defaults={}, scn2img_toggles={}, scn2img_toggle_defaults={}, scn2img_define_args=lambda: ({},{},{}),
                    user_defaults={}, run_GFPGAN=lambda x: x, run_RealESRGAN=lambda x: x,
                    job_manager: JobManager = None) -> gr.Blocks:
-    with gr.Blocks(css=css(opt), analytics_enabled=False, title="Stable Diffusion WebUI") as demo:
+    with gr.Blocks(css=css(opt), analytics_enabled=False, title="Metacube Story Miner") as demo:
         with gr.Tabs(elem_id='tabss') as tabs:
             with gr.TabItem("Text-to-Image", id='txt2img_tab'):
                 with gr.Row(elem_id="prompt_row"):
