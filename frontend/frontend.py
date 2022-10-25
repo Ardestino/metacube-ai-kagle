@@ -31,6 +31,21 @@ def draw_gradio_ui(opt, img2img=lambda x: x, txt2img=lambda x: x, imgproc=lambda
                    user_defaults={}, run_GFPGAN=lambda x: x, run_RealESRGAN=lambda x: x,
                    job_manager: JobManager = None) -> gr.Blocks:
     with gr.Blocks(css=css(opt), analytics_enabled=False, title="Metacube Story Miner") as demo:
+        gr.HTML("""
+        <style>
+            .content-wrapper {
+                padding: 1em;
+                text-align: center;
+            }
+
+        .logo {
+            width: 250px;
+        }
+        <div id="90" style="max-width: 100%; font-size: 14px; text-align: center;" class="output-markdown gr-prose border-solid border border-gray-200 rounded gr-panel">
+            <div class="content-wrapper">
+            <img class="logo no-select" src="https://static.wixstatic.com/media/1933af_6ecb8ee9eb0b4dcbb868b70f1749e3af~mv2.png/v1/fill/w_208,h_56,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo_MetaCube.png">
+            </div>
+        </div>""")
         with gr.Tabs(elem_id='tabss') as tabs:
             with gr.TabItem("Text-to-Image", id='txt2img_tab'):
                 with gr.Row(elem_id="prompt_row"):
@@ -859,12 +874,12 @@ def draw_gradio_ui(opt, img2img=lambda x: x, txt2img=lambda x: x, imgproc=lambda
                     _js=js_move_image('txt2img_gallery_output', 'img2img_editor'))
         """
         gr.HTML("""
-    <div id="90" style="max-width: 100%; font-size: 14px; text-align: center;" class="output-markdown gr-prose border-solid border border-gray-200 rounded gr-panel">
-        <p>For help and advanced usage guides, visit the <a href="https://github.com/hlky/stable-diffusion-webui/wiki" target="_blank">Project Wiki</a></p>
-        <p>Stable Diffusion WebUI is an open-source project. You can find the latest stable builds on the <a href="https://github.com/hlky/stable-diffusion" target="_blank">main repository</a>.
-        If you would like to contribute to development or test bleeding edge builds, you can visit the <a href="https://github.com/hlky/stable-diffusion-webui" target="_blank">developement repository</a>.</p>
-        <p>Device ID {current_device_index}: {current_device_name}<br/>{total_device_count} total devices</p>
-    </div>
+        <div id="90" style="max-width: 100%; font-size: 14px; text-align: center;" class="output-markdown gr-prose border-solid border border-gray-200 rounded gr-panel">
+            <div class="content-wrapper">
+            <img class="logo no-select" src="https://static.wixstatic.com/media/1933af_6ecb8ee9eb0b4dcbb868b70f1749e3af~mv2.png/v1/fill/w_208,h_56,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo_MetaCube.png">
+            </div>
+            <p>Device ID {current_device_index}: {current_device_name}<br/>{total_device_count} total devices</p>
+        </div>
     """.format(current_device_name=torch.cuda.get_device_name(), current_device_index=torch.cuda.current_device(), total_device_count=torch.cuda.device_count()))
         # Hack: Detect the load event on the frontend
         # Won't be needed in the next version of gradio
